@@ -1,0 +1,52 @@
+name: hotel
+description: A new Flutter project.
+
+
+publish_to: 'none' 
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.6 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.2
+  searchbar_animation: ^0.0.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+ 
+  flutter_lints: ^2.0.0
+
+
+flutter:
+
+  
+  uses-material-design: true
+
+  assets:
+    - assets/images/hotels/
+    - assets/images/chambres/
+    - assets/images/picines/
+ 
+  fonts:
+     - family: Poppins
+       fonts:
+        - asset: assets/fonts/Poppins/Poppins-Bold.ttf
+        - asset: assets/fonts/Poppins/Poppins-Italic.ttf
+     - family: Montserrat
+       fonts:
+        - asset: assets/fonts/Montserrat/static/Montserrat-Italic.ttf
+        - asset: assets/fonts/Montserrat/static/Montserrat-BoldItalic.ttf
+     - family: Lato
+       fonts:
+        - asset: assets/fonts/Lato/Lato-Italic.ttf
+        - asset: assets/fonts/Lato/Lato-BoldItalic.ttf
+        - asset: assets/fonts/Lato/Lato-Bold.ttf
