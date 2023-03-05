@@ -17,6 +17,10 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   searchbar_animation: ^0.0.4
+  carousel_slider: ^4.2.1
+  animated_textformfields: ^1.0.1
+  date_field: ^3.0.2
+  intl_phone_field: ^3.1.0
 
 dev_dependencies:
   flutter_test:

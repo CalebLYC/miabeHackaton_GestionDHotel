@@ -19,7 +19,7 @@ class _HotelsPageState extends State<HotelsPage> {
     return Scaffold(
       body: ConstrainedBox(
         constraints: BoxConstraints(
-          minHeight: MediaQuery.of(context).size.height,
+          minHeight: MediaQuery.of(context).size.height * 2,
         ),
         child: SingleChildScrollView(
           child: Column(

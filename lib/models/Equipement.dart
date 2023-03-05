@@ -7,6 +7,7 @@ class Equipement {
   final String? location;
   final bool? isAvailable;
   final int? hotelId;
+  final String? description;
 
   const Equipement({
     this.id,
@@ -17,6 +18,7 @@ class Equipement {
     this.location,
     this.isAvailable,
     this.hotelId,
+    this.description,
   });
 
   factory Equipement.fromMap(Map<String, dynamic> json) => Equipement(
@@ -28,6 +30,7 @@ class Equipement {
         isAvailable: json['isAvailable'],
         categoryId: json['categoryId'],
         hotelId: json['hotelId'],
+        description: json['description'],
       );
 
   Map<String, dynamic> toMap() {
@@ -40,6 +43,7 @@ class Equipement {
       'location': location,
       'isAvailable': isAvailable,
       'hotelId': hotelId,
+      'description': description,
     };
   }
 }

@@ -27,12 +27,11 @@ class HotelCard extends StatelessWidget {
                     pageBuilder: (_, __, ___) => HotelDetailsPage(
                       hotel: hotel,
                     ),
-                    fullscreenDialog: true,
                   ),
                 );
               }),
               child: Hero(
-                tag: hotel.id!,
+                tag: 'page1-hotel-${hotel.id!}',
                 child: ClipRRect(
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10.0),
@@ -41,7 +40,7 @@ class HotelCard extends StatelessWidget {
                   child: Image.asset(
                     hotel.imageUrl,
                     width: 120.0,
-                    height: 80.0,
+                    height: 60.0,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -82,13 +81,13 @@ class HotelCard extends StatelessWidget {
                           const Icon(
                             Icons.star,
                             color: Colors.orange,
-                            size: 15,
+                            size: 12,
                           ),
                         for (int i = 0; i < 5 - hotel.stars!; i++)
                           const Icon(
                             Icons.star,
                             color: Colors.grey,
-                            size: 15,
+                            size: 12,
                           ),
                       ],
                     ),
@@ -125,7 +124,6 @@ class HotelCardWithoutHero extends StatelessWidget {
                     pageBuilder: (_, __, ___) => HotelDetailsPage(
                       hotel: hotel,
                     ),
-                    fullscreenDialog: true,
                   ),
                 );
               }),
@@ -137,7 +135,7 @@ class HotelCardWithoutHero extends StatelessWidget {
                 child: Image.asset(
                   hotel.imageUrl,
                   width: 120.0,
-                  height: 80.0,
+                  height: 70.0,
                   fit: BoxFit.cover,
                 ),
               ),
