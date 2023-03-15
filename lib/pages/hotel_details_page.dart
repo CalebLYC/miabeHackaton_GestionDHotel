@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hotel/components/chambres_grid.dart';
 
 import 'package:hotel/components/headWidget.dart';
+import 'package:hotel/components/map_carte.dart';
 import 'package:hotel/components/title.dart';
 
 import 'package:hotel/models/Hotel.dart';
@@ -24,9 +25,9 @@ class _HotelDetailsPageState extends State<HotelDetailsPage> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
         title: Text(hotel.name),
-      ),
+      ),*/
       body: Container(
         height: size.height,
         child: SingleChildScrollView(
@@ -56,15 +57,15 @@ class _HotelDetailsPageState extends State<HotelDetailsPage> {
               const TitleWidget(text: 'Localisation'),
               Container(
                 width: size.width,
-                height: size.height / 5,
-                child: Padding(
-                  padding: const EdgeInsets.all(10),
+                height: size.height / 6,
+                /*child: Padding(
+                  padding: EdgeInsets.all(10),
                   child: Image.asset(
                     'assets/images/hotels/map.jpeg',
                     width: size.width - 20,
                     fit: BoxFit.cover,
-                  ),
-                ),
+                  ),*/
+                child: MapCarte(),
               ),
               const TitleWidget(text: 'Nos équipements'),
               ChambresGrid(chambres: equipements),

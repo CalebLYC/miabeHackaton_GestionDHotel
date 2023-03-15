@@ -1,7 +1,9 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:hotel/components/hotels_grid.dart';
 import 'package:hotel/components/hotels_scroll_widgets.dart';
 import 'package:hotel/components/searchbar.dart';
+import 'package:hotel/components/separator.dart';
 import 'package:hotel/utils/data.dart';
 
 class HotelsPage extends StatefulWidget {
@@ -16,40 +18,63 @@ class _HotelsPageState extends State<HotelsPage> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    return Scaffold(
-      body: ConstrainedBox(
-        constraints: BoxConstraints(
-          minHeight: MediaQuery.of(context).size.height * 2,
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(25),
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        minHeight: MediaQuery.of(context).size.height * 2,
+      ),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(
+                  top: 25, bottom: 10, left: 15, right: 15),
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  border: Border.all(color: Colors.grey, width: 2),
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [
-                    Text(
-                      "Hi Petter",
-                      style: TextStyle(
-                        fontSize: 35,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.bold,
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.login,
+                        color: Colors.grey,
+                        size: 30,
                       ),
                     ),
-                    Icon(
-                      Icons.notifications,
-                      size: 50,
-                      color: Colors.black,
+                    SearchBar(),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Badge(
+                        badgeStyle: const BadgeStyle(
+                          badgeColor: Colors.red,
+                        ),
+                        badgeContent: Text(
+                          5.toString(),
+                          style: const TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        child: const Icon(
+                          Icons.notifications,
+                          color: Colors.grey,
+                          size: 35,
+                        ),
+                      ),
                     ),
                   ],
                 ),
               ),
-              Container(
-                height: size.height * 0.3,
-                child: Column(
-                  children: [
-                    const Text(
+            ),
+            Container(
+              height: size.height * 0.48,
+              child: Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.all(1),
+                    child: Text(
                       "Hotels populaires",
                       style: TextStyle(
                         fontSize: 20,
@@ -58,51 +83,22 @@ class _HotelsPageState extends State<HotelsPage> {
                         fontStyle: FontStyle.italic,
                       ),
                     ),
-                    HotelScroolWidget(hotels: popularsHotels)
-                  ],
-                ),
+                  ),
+                  HotelsScrollWidget(hotels: popularsHotels)
+                ],
               ),
-              const SizedBox(height: 5),
-              const Text(
-                "In wich hotel would you want to stay",
-                style: TextStyle(
-                  fontSize: 15,
-                  fontFamily: 'Lato',
-                  fontStyle: FontStyle.italic,
-                ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(bottom: 5, top: 0),
+              child: SeparationWidget(),
+            ),
+            Container(
+              height: size.height * 0.8,
+              child: HotelsGrid(
+                hotels: hotels,
               ),
-              const Text(
-                'Hotels',
-                style: TextStyle(
-                  fontSize: 25,
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.blue.shade200,
-                  borderRadius: const BorderRadius.all(Radius.circular(10)),
-                ),
-                margin: const EdgeInsets.all(3),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(3),
-                      child: SearchBar(),
-                    ),
-                    Container(
-                      height: size.height * 0.9,
-                      child: HotelsGrid(
-                        hotels: hotels,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -14,7 +14,7 @@ class HotelsGrid extends StatelessWidget {
         minHeight: MediaQuery.of(context).size.height * 0.75,
         maxHeight: MediaQuery.of(context).size.height,
       ),
-      child: GridView.builder(
+      /*child: GridView.builder(
         key: UniqueKey(),
         itemCount: hotels.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -24,7 +24,10 @@ class HotelsGrid extends StatelessWidget {
         ),
         itemBuilder: ((context, index) {
           return HotelCard(hotel: hotels[index]);
-        }),
+        }),*/
+      child: ListView.builder(
+        itemCount: hotels.length,
+        itemBuilder: (context, index) => HotelCard(hotel: hotels[index]),
       ),
     );
   }

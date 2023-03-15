@@ -21,6 +21,10 @@ dependencies:
   animated_textformfields: ^1.0.1
   date_field: ^3.0.2
   intl_phone_field: ^3.1.0
+  flutter_svg: ^1.1.6
+  badges: ^3.0.2
+  google_maps_flutter: ^2.2.5
+  cached_network_image: ^3.2.3
 
 dev_dependencies:
   flutter_test:
@@ -39,6 +43,8 @@ flutter:
     - assets/images/hotels/
     - assets/images/chambres/
     - assets/images/picines/
+    - assets/images/bg/
+    - assets/images/svg/google_logo.svg
  
   fonts:
      - family: Poppins

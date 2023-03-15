@@ -10,9 +10,9 @@ class SearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SearchBarAnimation(
+    /*return SearchBarAnimation(
       textEditingController: _textEditingController,
-      isOriginalAnimation: false,
+      isOriginalAnimation: true,
       buttonBorderColour: Colors.black45,
       buttonWidget: const Icon(Icons.search),
       secondaryButtonWidget: const Icon(Icons.clear),
@@ -21,6 +21,31 @@ class SearchBar extends StatelessWidget {
         debugPrint('onFieldSubmitted value $value');
         _textEditingController.clear();
       },
+    );*/
+    return Expanded(
+      child: TextField(
+        controller: _textEditingController,
+        cursorColor: Colors.grey,
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          focusColor: Colors.grey,
+          fillColor: Colors.grey,
+          suffixIcon: IconButton(
+            onPressed: () {
+              print(_textEditingController.text);
+            },
+            icon: const Icon(
+              Icons.search,
+              color: Colors.grey,
+            ),
+          ),
+          hintText: 'Rechercher...',
+          /*hintStyle: TextStyle(
+            color: Colors.white,
+          ),*/
+        ),
+        onSubmitted: (value) => print(value),
+      ),
     );
   }
 }

@@ -49,14 +49,11 @@ class HeadWidget extends StatelessWidget {
                     children: [
                       IconButton(
                         onPressed: () {
-                          defilement
-                              ? controller.stopAutoPlay()
-                              : controller.startAutoPlay();
-                          defilement = !defilement;
+                          Navigator.pop(context);
                         },
                         tooltip:
                             '${defilement ? 'Arrêter' : 'Reprendre'} le déroulement du carousel',
-                        icon: const Icon(Icons.pause),
+                        icon: const Icon(Icons.arrow_back),
                         color: Colors.white,
                         iconSize: 25,
                       ),
